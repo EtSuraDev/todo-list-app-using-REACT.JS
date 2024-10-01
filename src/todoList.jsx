@@ -1,11 +1,12 @@
 import { useState } from "react";
-function Button(){
+function TodoList(){
     let [toDoItem,setToDoItem] = useState([])
     function handleSaveBtn(){
         let input = document.querySelector(".input>input").value
         document.querySelector(".input>input").value = ""
-        setToDoItem([...toDoItem,input])
-            console.log(toDoItem)
+        if(input !== ""){
+            setToDoItem([...toDoItem,input])
+        }
     }
     function mapToDoItem(){
         return(toDoItem.map((item,index) => <tr className="data">
@@ -85,4 +86,4 @@ function Button(){
         </>
     )
 }
-export default Button;
+export default TodoList;
